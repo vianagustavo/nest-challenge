@@ -1,5 +1,4 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Account } from '@prisma/client';
 
 import { Exclude, Expose } from 'class-transformer';
 import { IsDate, IsString } from 'class-validator';
