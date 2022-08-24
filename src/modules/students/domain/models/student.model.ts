@@ -1,5 +1,3 @@
-import { Account } from '@prisma/client';
-
 export interface Student {
   id: string;
   name: string;
@@ -7,5 +5,4 @@ export interface Student {
   document: string;
   createdAt: Date;
   updatedAt: Date;
-  accounts?: Account[];
 }

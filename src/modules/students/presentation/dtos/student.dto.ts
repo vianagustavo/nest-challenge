@@ -28,11 +28,6 @@ export class StudentDTO implements Student {
 
   @ApiProperty()
   @Expose()
-  @IsString()
-  public accounts: Account[];
-
-  @ApiProperty()
-  @Expose()
   @IsDate()
   public createdAt: Date;
 
