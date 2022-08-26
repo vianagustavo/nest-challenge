@@ -2,7 +2,8 @@ import { Body, Controller, Inject, Post } from '@nestjs/common';
 import { plainToInstance } from 'class-transformer';
 import { CREATE_STUDENT } from 'src/modules/students/constants/usecases';
 import { CreateStudent } from 'src/modules/students/domain';
-import { StudentDTO } from '../../dtos/student.dto';
+import { StudentOutputDTO } from '../../dtos';
+import { StudentDTO } from '../../dtos/create-student.dto';
 
 @Controller('student')
 export class CreateStudentController {
@@ -12,9 +13,9 @@ export class CreateStudentController {
   ) {}
 
   @Post()
-  public async create(@Body() input: StudentDTO): Promise<StudentDTO> {
+  public async create(@Body() input: StudentDTO): Promise<StudentOutputDTO> {
     const student = await this.createStudent.execute(input);
 
-    return plainToInstance(StudentDTO, student);
+    return plainToInstance(StudentOutputDTO, student);
   }
 }

@@ -1,23 +1,21 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-import { Exclude, Expose } from 'class-transformer';
-import { IsDate, IsString } from 'class-validator';
+import { Expose } from 'class-transformer';
+import { IsDate, IsOptional, IsString } from 'class-validator';
 import { Student } from '../../domain';
 
-@Exclude()
+@Expose()
 export class StudentDTO implements Student {
   @ApiProperty()
-  @Expose()
+  @IsOptional()
   @IsString()
   public id: string;
 
   @ApiProperty()
-  @Expose()
   @IsString()
   public name: string;
 
   @ApiProperty()
-  @Expose()
   @IsString()
   public document: string;
 
@@ -26,12 +24,12 @@ export class StudentDTO implements Student {
   public password: string;
 
   @ApiProperty()
-  @Expose()
+  @IsOptional()
   @IsDate()
   public createdAt: Date;
 
   @ApiProperty()
-  @Expose()
+  @IsOptional()
   @IsDate()
   public updatedAt: Date;
 
